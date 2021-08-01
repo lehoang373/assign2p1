@@ -8,11 +8,20 @@
     <br />
     <br />
     <form method="post" action="{% url 'login' %}">
-        {{ form|crispy }}
+        {{ form.as_p }}
         {% csrf_token %}
 
 
         <input type="submit" value="login"/>
         <input type="hidden" name="next" value="{{ next }}"/>
     </form>
+
+    <div class="d-flex flex-column">
+        <a class="m-auto" href="{%url 'password_change' %}">Change password</a>
+    </div>
+
+    <div class="d-flex flex-column">
+        <a class="m-auto" href="{%url 'password_reset' %}">Forgot password</a>
+    </div>
+
 {% endblock %}
